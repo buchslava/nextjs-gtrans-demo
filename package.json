@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "next": "latest",
+    "nookies": "^2.5.2",
     "react": "latest",
-    "react-dom": "latest",
-    "universal-cookie": "^6.1.1"
+    "react-dom": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",

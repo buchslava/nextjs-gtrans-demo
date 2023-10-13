@@ -1,5 +1,5 @@
-import Cookies from "universal-cookie";
 import { useEffect, useState } from "react";
+import { parseCookies, setCookie } from "nookies";
 
 const COOKIE_NAME = "googtrans";
 
@@ -22,8 +22,8 @@ const LanguageSwitcher = () => {
   const [languageConfig, setLanguageConfig] = useState<any>();
 
   useEffect(() => {
-    const cookies = new Cookies();
-    const existingLanguageCookieValue = cookies.get(COOKIE_NAME);
+    const cookies = parseCookies()
+    const existingLanguageCookieValue = cookies[COOKIE_NAME];
 
     let languageValue;
     if (existingLanguageCookieValue) {
@@ -48,8 +48,7 @@ const LanguageSwitcher = () => {
   }
 
   const switchLanguage = (lang: string) => () => {
-    const cookies = new Cookies();
-    cookies.set(COOKIE_NAME, "/auto/" + lang);
+    setCookie(null, COOKIE_NAME, "/auto/" + lang)
     window.location.reload();
   };
 
