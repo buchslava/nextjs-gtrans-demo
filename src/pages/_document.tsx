@@ -6,17 +6,15 @@ export default function Document() {
     <Html>
       <Head>
         <Script
-          src="/assets/scripts/lang-config.js"
-          strategy="beforeInteractive"
-        />
-        <Script
           src="/assets/scripts/translation.js"
           strategy="beforeInteractive"
         />
-        <Script
-          src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
-          strategy="afterInteractive"
-        />
+        {process.env.GOOGLE_TRANSLATION_CONFIG && (
+          <Script
+            src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
+            strategy="afterInteractive"
+          />
+        )}
       </Head>
       <body>
         <Main />
